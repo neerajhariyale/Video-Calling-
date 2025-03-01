@@ -1,21 +1,16 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './components/Home'
-import VideoComp from './components/VideoComp.jsx'
-
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import VideoComp from './components/VideoComp.jsx';
 
 function App() {
-
-
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/room/:roomID' element={<VideoComp />} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/room/:roomID" element={<VideoComp />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

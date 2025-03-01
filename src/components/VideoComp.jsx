@@ -1,14 +1,18 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const VideoComp = () => {
     const { roomID } = useParams();
     const containerRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const myMeeting = async () => {
-            if (!roomID || !containerRef.current) return;
+            if (!roomID || !containerRef.current) {
+                navigate('/');
+                return;
+            }
 
             const appID = 2046966053;
             const serverSecret = "49045cc7498f82af2f99d3262070d5f5";
@@ -26,7 +30,7 @@ const VideoComp = () => {
                 sharedLinks: [
                     {
                         name: 'Personal link',
-                        url: `${window.location.origin}/room/${roomID}`,
+                        url: `${window.location.origin}/#/room/${roomID}`,
                     },
                 ],
                 scenario: {
@@ -42,7 +46,7 @@ const VideoComp = () => {
                 containerRef.current.innerHTML = "";
             }
         };
-    }, [roomID]);
+    }, [roomID, navigate]);
 
     return (
         <div
