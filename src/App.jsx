@@ -1,19 +1,18 @@
-import { useState } from 'react'
-import {BrowserRouter , Routes , Route }  from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
-import VideoComp from './components/VideoComp'
+import VideoComp from './components/VideoComp.jsx'
 
 
 function App() {
-  
+
 
   return (
     <>
       <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/room/:roomID' element={<VideoComp/>} />
-      </Routes>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/room/:roomID' element={<VideoComp />} />
+        </Routes>
       </BrowserRouter>
     </>
   )
