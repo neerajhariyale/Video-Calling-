@@ -30,7 +30,7 @@ const VideoComp = () => {
                 sharedLinks: [
                     {
                         name: 'Personal link',
-                        url: `${window.location.origin}/#/room/${roomID}`,
+                        url: `${window.location.origin}/room/${roomID}`,
                     },
                 ],
                 scenario: {
